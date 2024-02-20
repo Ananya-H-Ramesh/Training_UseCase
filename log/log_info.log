@@ -1,0 +1,1485 @@
+24-02-11 20:36:50 - root - INFO - Successfully Extracted Dataset
+24-02-11 20:36:50 - root - INFO - All Standardizations are applied on Callcap data
+24-02-11 20:36:50 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 20:36:50 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 20:36:52 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-11 20:36:53 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:36:55 - root - INFO - Loaded json data to Stage
+24-02-11 20:36:55 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-11 20:36:55 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:36:55 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:36:55 - root - INFO - Loaded json data from stage to landing table
+24-02-11 20:36:55 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-11 20:36:56 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:36:56 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-11 20:36:56 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 20:36:56 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 20:36:58 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-11 20:36:58 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:36:58 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:36:58 - root - INFO - All Zipcodes are Standardized
+24-02-11 20:36:58 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-11 20:36:59 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:36:59 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:36:59 - root - INFO - All Null Valued are Handled
+24-02-11 20:36:59 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-11 20:37:02 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:37:02 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:37:02 - root - INFO - All keys in payloads are in snake case
+24-02-11 20:37:02 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-11 20:37:02 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:37:02 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 20:37:02 - root - INFO - Date Id Validation Successful
+24-02-11 20:37:02 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-11 20:37:03 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:37:03 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 20:37:03 - root - INFO - Hour Id Validation Successful
+24-02-11 20:37:03 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-11 20:37:03 - root - INFO - Slack notification sent successfully!
+24-02-11 20:37:03 - snowflake.connector.connection - INFO - closed
+24-02-11 20:37:03 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 20:37:04 - snowflake.connector.connection - INFO - closed
+24-02-11 20:37:04 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 20:40:09 - root - INFO - Successfully Extracted Dataset
+24-02-11 20:40:09 - root - INFO - All Standardizations are applied on Callcap data
+24-02-11 20:40:09 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 20:40:09 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 20:40:11 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-11 20:40:12 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:40:13 - root - INFO - Loaded json data to Stage
+24-02-11 20:40:13 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-11 20:40:14 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:40:14 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:40:14 - root - INFO - Loaded json data from stage to landing table
+24-02-11 20:40:14 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-11 20:40:16 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:40:16 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-11 20:40:16 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 20:40:16 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 20:40:17 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-11 20:40:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:40:17 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:40:17 - root - INFO - All Zipcodes are Standardized
+24-02-11 20:40:17 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-11 20:40:18 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:40:18 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:40:18 - root - INFO - All Null Valued are Handled
+24-02-11 20:40:18 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-11 20:40:21 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:40:21 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:40:21 - root - INFO - All keys in payloads are in snake case
+24-02-11 20:40:21 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-11 20:40:21 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:40:21 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 20:40:21 - root - INFO - Date Id Validation Successful
+24-02-11 20:40:21 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-11 20:40:21 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:40:21 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 20:40:21 - root - INFO - Hour Id Validation Successful
+24-02-11 20:40:21 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-11 20:40:22 - root - INFO - Slack notification sent successfully!
+24-02-11 20:40:22 - snowflake.connector.connection - INFO - closed
+24-02-11 20:40:22 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 20:40:23 - snowflake.connector.connection - INFO - closed
+24-02-11 20:40:23 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 20:47:51 - root - INFO - Successfully Extracted Dataset
+24-02-11 20:47:51 - root - INFO - All Standardizations are applied on Callcap data
+24-02-11 20:47:51 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 20:47:51 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 20:47:53 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-11 20:47:54 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:47:56 - root - INFO - Loaded json data to Stage
+24-02-11 20:47:56 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-11 20:47:56 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:47:56 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:47:56 - root - INFO - Loaded json data from stage to landing table
+24-02-11 20:47:56 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-11 20:47:57 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:47:57 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-11 20:47:57 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 20:47:57 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 20:47:58 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-11 20:47:58 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:47:58 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:47:58 - root - INFO - All Zipcodes are Standardized
+24-02-11 20:47:58 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-11 20:47:59 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:47:59 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:47:59 - root - INFO - All Null Valued are Handled
+24-02-11 20:47:59 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-11 20:48:02 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:48:02 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:48:02 - root - INFO - All keys in payloads are in snake case
+24-02-11 20:48:02 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-11 20:48:02 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:48:02 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 20:48:02 - root - INFO - Date Id Validation Successful
+24-02-11 20:48:02 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-11 20:48:02 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:48:02 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 20:48:02 - root - INFO - Hour Id Validation Successful
+24-02-11 20:48:02 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-11 20:48:03 - root - INFO - Slack notification sent successfully!
+24-02-11 20:48:03 - snowflake.connector.connection - INFO - closed
+24-02-11 20:48:03 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 20:48:04 - snowflake.connector.connection - INFO - closed
+24-02-11 20:48:04 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 20:50:32 - root - INFO - Successfully Extracted Dataset
+24-02-11 20:50:32 - root - INFO - All Standardizations are applied on Callcap data
+24-02-11 20:50:32 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 20:50:32 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 20:50:34 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-11 20:50:35 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:50:37 - root - INFO - Loaded json data to Stage
+24-02-11 20:50:37 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-11 20:50:37 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:50:37 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:50:37 - root - INFO - Loaded json data from stage to landing table
+24-02-11 20:50:37 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-11 20:50:38 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:50:38 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-11 20:50:38 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 20:50:38 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 20:50:39 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-11 20:50:39 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:50:39 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:50:39 - root - INFO - All Zipcodes are Standardized
+24-02-11 20:50:39 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-11 20:50:40 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:50:40 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:50:40 - root - INFO - All Null Valued are Handled
+24-02-11 20:50:40 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-11 20:55:11 - root - INFO - Successfully Extracted Dataset
+24-02-11 20:55:11 - root - INFO - All Standardizations are applied on Callcap data
+24-02-11 20:55:11 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 20:55:11 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 20:55:12 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-11 20:55:13 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:55:15 - root - INFO - Loaded json data to Stage
+24-02-11 20:55:15 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-11 20:55:16 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:55:16 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:55:16 - root - INFO - Loaded json data from stage to landing table
+24-02-11 20:55:16 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-11 20:55:16 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:55:16 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-11 20:55:16 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 20:55:16 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 20:55:17 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-11 20:55:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:55:17 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:55:17 - root - INFO - All Zipcodes are Standardized
+24-02-11 20:55:17 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-11 20:55:18 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:55:18 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:55:18 - root - INFO - All Null Valued are Handled
+24-02-11 20:55:18 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-11 20:55:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:55:22 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 20:55:22 - root - INFO - All keys in payloads are in snake case
+24-02-11 20:55:22 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-11 20:55:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:55:22 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 20:55:22 - root - INFO - Date Id Validation Successful
+24-02-11 20:55:22 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-11 20:55:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 20:55:22 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 20:55:22 - root - INFO - Hour Id Validation Successful
+24-02-11 20:55:22 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-11 20:55:23 - root - INFO - Slack notification sent successfully!
+24-02-11 20:55:23 - snowflake.connector.connection - INFO - closed
+24-02-11 20:55:23 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 20:55:23 - snowflake.connector.connection - INFO - closed
+24-02-11 20:55:23 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 21:00:35 - root - INFO - Successfully Extracted Dataset
+24-02-11 21:00:35 - root - INFO - All Standardizations are applied on Callcap data
+24-02-11 21:00:35 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 21:00:35 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 21:00:36 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-11 21:00:38 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:00:39 - root - INFO - Loaded json data to Stage
+24-02-11 21:00:39 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-11 21:00:39 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:00:39 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:00:39 - root - INFO - Loaded json data from stage to landing table
+24-02-11 21:00:39 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-11 21:00:40 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:00:40 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-11 21:00:40 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 21:00:40 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 21:00:41 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-11 21:00:41 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:00:41 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:00:41 - root - INFO - All Zipcodes are Standardized
+24-02-11 21:00:41 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-11 21:00:42 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:00:42 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:00:42 - root - INFO - All Null Valued are Handled
+24-02-11 21:00:42 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-11 21:00:46 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:00:46 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:00:46 - root - INFO - All keys in payloads are in snake case
+24-02-11 21:00:46 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-11 21:00:46 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:00:46 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 21:00:46 - root - INFO - Date Id Validation Successful
+24-02-11 21:00:46 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-11 21:00:46 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:00:46 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 21:00:46 - root - INFO - Hour Id Validation Successful
+24-02-11 21:00:46 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-11 21:00:47 - root - INFO - Slack notification sent successfully!
+24-02-11 21:00:47 - snowflake.connector.connection - INFO - closed
+24-02-11 21:00:47 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 21:00:48 - snowflake.connector.connection - INFO - closed
+24-02-11 21:00:48 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 21:05:10 - root - INFO - Successfully Extracted Dataset
+24-02-11 21:05:10 - root - INFO - All Standardizations are applied on Callcap data
+24-02-11 21:05:10 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 21:05:10 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 21:05:12 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-11 21:05:13 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:05:14 - root - INFO - Loaded json data to Stage
+24-02-11 21:05:14 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-11 21:05:15 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:05:15 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:05:15 - root - INFO - Loaded json data from stage to landing table
+24-02-11 21:05:15 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-11 21:05:15 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:05:15 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-11 21:05:15 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 21:05:15 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 21:05:18 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-11 21:05:19 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:05:19 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:05:19 - root - INFO - All Zipcodes are Standardized
+24-02-11 21:05:19 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-11 21:05:20 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:05:20 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:05:20 - root - INFO - All Null Valued are Handled
+24-02-11 21:05:20 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-11 21:05:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:05:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:05:23 - root - INFO - All keys in payloads are in snake case
+24-02-11 21:05:23 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-11 21:05:24 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:05:24 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 21:05:24 - root - INFO - Date Id Validation Successful
+24-02-11 21:05:24 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-11 21:05:24 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:05:24 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 21:05:24 - root - INFO - Hour Id Validation Successful
+24-02-11 21:05:24 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-11 21:05:24 - root - INFO - Slack notification sent successfully!
+24-02-11 21:05:24 - snowflake.connector.connection - INFO - closed
+24-02-11 21:05:24 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 21:05:26 - snowflake.connector.connection - INFO - closed
+24-02-11 21:05:26 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 21:15:11 - root - INFO - Successfully Extracted Dataset
+24-02-11 21:15:11 - root - INFO - All Standardizations are applied on Callcap data
+24-02-11 21:15:11 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 21:15:11 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 21:15:12 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-11 21:15:13 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:15:15 - root - INFO - Loaded json data to Stage
+24-02-11 21:15:15 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-11 21:15:15 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:15:15 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:15:15 - root - INFO - Loaded json data from stage to landing table
+24-02-11 21:15:15 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-11 21:15:16 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:15:16 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-11 21:15:16 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 21:15:16 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 21:15:17 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-11 21:15:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:15:17 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:15:17 - root - INFO - All Zipcodes are Standardized
+24-02-11 21:15:17 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-11 21:15:18 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:15:18 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:15:18 - root - INFO - All Null Valued are Handled
+24-02-11 21:15:18 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-11 21:15:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:15:22 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:15:22 - root - INFO - All keys in payloads are in snake case
+24-02-11 21:15:22 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-11 21:15:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:15:22 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 21:15:22 - root - INFO - Date Id Validation Successful
+24-02-11 21:15:22 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-11 21:15:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:15:22 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 21:15:22 - root - INFO - Hour Id Validation Successful
+24-02-11 21:15:22 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-11 21:15:23 - root - INFO - Slack notification sent successfully!
+24-02-11 21:15:23 - snowflake.connector.connection - INFO - closed
+24-02-11 21:15:23 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 21:15:24 - snowflake.connector.connection - INFO - closed
+24-02-11 21:15:24 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 21:25:12 - root - INFO - Successfully Extracted Dataset
+24-02-11 21:25:12 - root - INFO - All Standardizations are applied on Callcap data
+24-02-11 21:25:12 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 21:25:12 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 21:25:14 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-11 21:25:15 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:25:17 - root - INFO - Loaded json data to Stage
+24-02-11 21:25:17 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-11 21:25:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:25:17 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:25:17 - root - INFO - Loaded json data from stage to landing table
+24-02-11 21:25:17 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-11 21:25:18 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:25:18 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-11 21:25:18 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 21:25:18 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 21:25:19 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-11 21:25:19 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:25:19 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:25:19 - root - INFO - All Zipcodes are Standardized
+24-02-11 21:25:19 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-11 21:25:20 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:25:20 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:25:20 - root - INFO - All Null Valued are Handled
+24-02-11 21:25:20 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-11 21:25:24 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:25:24 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:25:24 - root - INFO - All keys in payloads are in snake case
+24-02-11 21:25:24 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-11 21:25:24 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:25:24 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 21:25:24 - root - INFO - Date Id Validation Successful
+24-02-11 21:25:24 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-11 21:25:24 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:25:24 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 21:25:24 - root - INFO - Hour Id Validation Successful
+24-02-11 21:25:24 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-11 21:25:25 - root - INFO - Slack notification sent successfully!
+24-02-11 21:25:25 - snowflake.connector.connection - INFO - closed
+24-02-11 21:25:25 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 21:25:27 - snowflake.connector.connection - INFO - closed
+24-02-11 21:25:27 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 21:30:10 - root - INFO - Successfully Extracted Dataset
+24-02-11 21:30:11 - root - INFO - All Standardizations are applied on Callcap data
+24-02-11 21:30:11 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 21:30:11 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 21:30:12 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-11 21:30:13 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:30:15 - root - INFO - Loaded json data to Stage
+24-02-11 21:30:15 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-11 21:30:16 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:30:16 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:30:16 - root - INFO - Loaded json data from stage to landing table
+24-02-11 21:30:16 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-11 21:30:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:30:17 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-11 21:30:17 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-11 21:30:17 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-11 21:30:18 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-11 21:30:18 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:30:18 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:30:18 - root - INFO - All Zipcodes are Standardized
+24-02-11 21:30:18 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-11 21:30:19 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:30:19 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:30:19 - root - INFO - All Null Valued are Handled
+24-02-11 21:30:19 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-11 21:30:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:30:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-11 21:30:23 - root - INFO - All keys in payloads are in snake case
+24-02-11 21:30:23 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-11 21:30:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:30:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 21:30:23 - root - INFO - Date Id Validation Successful
+24-02-11 21:30:23 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-11 21:30:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-11 21:30:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-11 21:30:23 - root - INFO - Hour Id Validation Successful
+24-02-11 21:30:23 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-11 21:30:24 - root - INFO - Slack notification sent successfully!
+24-02-11 21:30:24 - snowflake.connector.connection - INFO - closed
+24-02-11 21:30:24 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-11 21:30:25 - snowflake.connector.connection - INFO - closed
+24-02-11 21:30:25 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 10:43:31 - root - INFO - Successfully Extracted Dataset
+24-02-12 10:43:31 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 10:43:31 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 10:43:31 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 10:43:34 - snowflake.connector.connection - INFO - closed
+24-02-12 10:43:34 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 10:44:50 - root - INFO - Successfully Extracted Dataset
+24-02-12 10:44:50 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 10:44:50 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 10:44:50 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 10:44:52 - snowflake.connector.connection - INFO - closed
+24-02-12 10:44:52 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 10:46:43 - root - INFO - Successfully Extracted Dataset
+24-02-12 10:46:43 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 10:46:43 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 10:46:43 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 10:46:46 - root - INFO - Slack notification sent successfully!
+24-02-12 10:46:46 - root - ERROR - Error: LoadSnowflake.execute_loading() missing 1 required positional argument: 'df'
+24-02-12 10:46:46 - snowflake.connector.connection - INFO - closed
+24-02-12 10:46:46 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 10:47:23 - root - INFO - Successfully Extracted Dataset
+24-02-12 10:47:23 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 10:47:23 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 10:47:23 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 10:47:25 - root - INFO - Slack notification sent successfully!
+24-02-12 10:47:25 - root - ERROR - Error: LoadSnowflake.execute_loading() missing 1 required positional argument: 'df'
+24-02-12 10:47:25 - snowflake.connector.connection - INFO - closed
+24-02-12 10:47:25 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 10:48:37 - root - INFO - Successfully Extracted Dataset
+24-02-12 10:48:37 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 10:48:37 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 10:48:37 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 10:48:38 - snowflake.connector.connection - INFO - closed
+24-02-12 10:48:38 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 10:53:20 - root - INFO - Successfully Extracted Dataset
+24-02-12 10:53:20 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 10:53:20 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 10:53:20 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 10:53:22 - snowflake.connector.connection - INFO - closed
+24-02-12 10:53:22 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 10:54:30 - root - INFO - Successfully Extracted Dataset
+24-02-12 10:54:30 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 10:54:30 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 10:54:30 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 10:54:32 - root - INFO - Slack notification sent successfully!
+24-02-12 10:54:32 - root - ERROR - Error: LoadSnowflake.execute_loading() missing 1 required positional argument: 'df'
+24-02-12 10:54:32 - snowflake.connector.connection - INFO - closed
+24-02-12 10:54:32 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 10:55:09 - root - INFO - Successfully Extracted Dataset
+24-02-12 10:55:09 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 10:55:09 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 10:55:09 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 10:55:18 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-12 10:55:19 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 10:55:22 - root - INFO - Loaded json data to Stage
+24-02-12 10:55:22 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-12 10:55:25 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 10:55:25 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 10:55:25 - root - INFO - Loaded json data from stage to landing table
+24-02-12 10:55:25 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-12 10:55:27 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 10:55:27 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-12 10:55:27 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 10:55:27 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 10:55:28 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-12 10:55:29 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 10:55:29 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 10:55:29 - root - INFO - All Zipcodes are Standardized
+24-02-12 10:55:29 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-12 10:55:32 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 10:55:32 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 10:55:32 - root - INFO - All Null Valued are Handled
+24-02-12 10:55:32 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-12 10:55:36 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 10:55:36 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 10:55:36 - root - INFO - All keys in payloads are in snake case
+24-02-12 10:55:36 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-12 10:55:37 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 10:55:37 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 10:55:37 - root - INFO - Date Id Validation Successful
+24-02-12 10:55:37 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-12 10:55:37 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 10:55:37 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 10:55:37 - root - INFO - Hour Id Validation Successful
+24-02-12 10:55:37 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-12 10:55:38 - root - INFO - Slack notification sent successfully!
+24-02-12 10:55:38 - snowflake.connector.connection - INFO - closed
+24-02-12 10:55:38 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 10:55:46 - snowflake.connector.connection - INFO - closed
+24-02-12 10:55:46 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 10:56:26 - root - INFO - Successfully Extracted Dataset
+24-02-12 10:56:26 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 10:56:26 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 10:56:26 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 10:56:27 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-12 10:56:28 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 10:56:29 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 10:56:30 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 10:56:30 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 10:56:33 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 10:56:33 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 10:56:38 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 10:56:38 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 10:56:46 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 10:56:47 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 10:57:03 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 10:57:04 - root - INFO - Slack notification sent successfully!
+24-02-12 10:57:04 - root - ERROR - Error: GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for exceeding maximum retries.
+24-02-12 10:57:04 - snowflake.connector.connection - INFO - closed
+24-02-12 10:57:04 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 12:14:11 - root - INFO - Successfully Extracted Dataset
+24-02-12 12:14:11 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 12:14:11 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 12:14:11 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 12:14:12 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-12 12:14:13 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 12:14:14 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 12:14:15 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 12:14:16 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 12:14:18 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 12:14:19 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 12:14:24 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 12:14:25 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 12:14:33 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 12:14:34 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 12:14:51 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 12:14:52 - root - INFO - Slack notification sent successfully!
+24-02-12 12:14:52 - root - ERROR - Error: GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for exceeding maximum retries.
+24-02-12 12:14:52 - snowflake.connector.connection - INFO - closed
+24-02-12 12:14:52 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 12:15:02 - root - INFO - Successfully Extracted Dataset
+24-02-12 12:15:02 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 12:15:02 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 12:15:02 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 12:15:03 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-12 12:15:05 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 12:15:06 - root - INFO - Loaded json data to Stage
+24-02-12 12:15:06 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-12 12:15:06 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 12:15:06 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 12:15:06 - root - INFO - Loaded json data from stage to landing table
+24-02-12 12:15:06 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-12 12:15:07 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 12:15:07 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-12 12:15:07 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 12:15:07 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 12:15:09 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-12 12:15:10 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 12:15:10 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 12:15:10 - root - INFO - All Zipcodes are Standardized
+24-02-12 12:15:10 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-12 12:15:11 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 12:15:11 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 12:15:11 - root - INFO - All Null Valued are Handled
+24-02-12 12:15:11 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-12 12:15:15 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 12:15:15 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 12:15:15 - root - INFO - All keys in payloads are in snake case
+24-02-12 12:15:15 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-12 12:15:15 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 12:15:15 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 12:15:15 - root - INFO - Date Id Validation Successful
+24-02-12 12:15:15 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-12 12:15:15 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 12:15:15 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 12:15:15 - root - INFO - Hour Id Validation Successful
+24-02-12 12:15:15 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-12 12:15:16 - root - INFO - Slack notification sent successfully!
+24-02-12 12:15:16 - snowflake.connector.connection - INFO - closed
+24-02-12 12:15:16 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 12:15:16 - snowflake.connector.connection - INFO - closed
+24-02-12 12:15:16 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 13:54:44 - root - INFO - Successfully Extracted Dataset
+24-02-12 13:54:44 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 13:54:44 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 13:54:44 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 13:54:46 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-12 13:54:47 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 13:54:48 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 13:54:49 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 13:54:50 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 13:54:52 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 13:54:54 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 13:54:58 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 13:54:59 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 13:55:07 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 13:55:09 - snowflake.connector.vendored.urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])"))': /?accelerate
+24-02-12 13:55:25 - snowflake.connector.storage_client - WARNING - GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for transient error: HTTPSConnectionPool(host='sfc-sg-ds1-71-customer-stage.s3.amazonaws.com', port=443): Max retries exceeded with url: /?accelerate (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', '', 'certificate verify failed')])")))
+24-02-12 13:55:28 - root - INFO - Slack notification sent successfully!
+24-02-12 13:55:28 - root - ERROR - Error: GET with url b'https://sfc-sg-ds1-71-customer-stage.s3.amazonaws.com/?accelerate' failed for exceeding maximum retries.
+24-02-12 13:55:28 - snowflake.connector.connection - INFO - closed
+24-02-12 13:55:28 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 13:59:38 - root - INFO - Successfully Extracted Dataset
+24-02-12 13:59:38 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 13:59:38 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 13:59:38 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 13:59:40 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-12 13:59:41 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 13:59:42 - root - INFO - Loaded json data to Stage
+24-02-12 13:59:42 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-12 13:59:43 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 13:59:43 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 13:59:43 - root - INFO - Loaded json data from stage to landing table
+24-02-12 13:59:43 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-12 13:59:44 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 13:59:44 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-12 13:59:44 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 13:59:44 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 13:59:46 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-12 13:59:46 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 13:59:46 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 13:59:46 - root - INFO - All Zipcodes are Standardized
+24-02-12 13:59:46 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-12 13:59:48 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 13:59:48 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 13:59:48 - root - INFO - All Null Valued are Handled
+24-02-12 13:59:48 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-12 13:59:52 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 13:59:52 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 13:59:52 - root - INFO - All keys in payloads are in snake case
+24-02-12 13:59:52 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-12 13:59:52 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 13:59:52 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 13:59:52 - root - INFO - Date Id Validation Successful
+24-02-12 13:59:52 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-12 13:59:52 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 13:59:52 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 13:59:52 - root - INFO - Hour Id Validation Successful
+24-02-12 13:59:52 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-12 13:59:53 - root - INFO - Slack notification sent successfully!
+24-02-12 13:59:53 - snowflake.connector.connection - INFO - closed
+24-02-12 13:59:53 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 13:59:54 - snowflake.connector.connection - INFO - closed
+24-02-12 13:59:54 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 14:00:03 - root - INFO - Successfully Extracted Dataset
+24-02-12 14:00:03 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 14:00:03 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 14:00:03 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 14:00:05 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-12 14:00:06 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:00:07 - root - INFO - Loaded json data to Stage
+24-02-12 14:00:07 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-12 14:00:09 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:00:09 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 14:00:09 - root - INFO - Loaded json data from stage to landing table
+24-02-12 14:00:09 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-12 14:00:10 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:00:10 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-12 14:00:10 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 14:00:10 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 14:00:11 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-12 14:00:11 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:00:11 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 14:00:11 - root - INFO - All Zipcodes are Standardized
+24-02-12 14:00:11 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-12 14:00:12 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:00:12 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 14:00:12 - root - INFO - All Null Valued are Handled
+24-02-12 14:00:12 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-12 14:00:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:00:17 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 14:00:17 - root - INFO - All keys in payloads are in snake case
+24-02-12 14:00:17 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-12 14:00:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:00:17 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 14:00:17 - root - INFO - Date Id Validation Successful
+24-02-12 14:00:17 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-12 14:00:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:00:17 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 14:00:17 - root - INFO - Hour Id Validation Successful
+24-02-12 14:00:17 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-12 14:00:18 - root - INFO - Slack notification sent successfully!
+24-02-12 14:00:18 - snowflake.connector.connection - INFO - closed
+24-02-12 14:00:18 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 14:00:18 - snowflake.connector.connection - INFO - closed
+24-02-12 14:00:18 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 14:02:49 - root - INFO - Successfully Extracted Dataset
+24-02-12 14:02:49 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 14:02:49 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 14:02:49 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 14:02:50 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-12 14:02:52 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:02:53 - root - INFO - Loaded json data to Stage
+24-02-12 14:02:53 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-12 14:02:54 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:02:54 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 14:02:54 - root - INFO - Loaded json data from stage to landing table
+24-02-12 14:02:54 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-12 14:02:55 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:02:55 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-12 14:02:55 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 14:02:55 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 14:02:56 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-12 14:02:57 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:02:57 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 14:02:57 - root - INFO - All Zipcodes are Standardized
+24-02-12 14:02:57 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-12 14:02:58 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:02:58 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 14:02:58 - root - INFO - All Null Valued are Handled
+24-02-12 14:02:58 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-12 14:03:03 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:03:03 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 14:03:03 - root - INFO - All keys in payloads are in snake case
+24-02-12 14:03:03 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-12 14:03:03 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:03:03 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 14:03:03 - root - INFO - Date Id Validation Successful
+24-02-12 14:03:03 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-12 14:03:03 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:03:03 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 14:03:03 - root - INFO - Hour Id Validation Successful
+24-02-12 14:03:03 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-12 14:03:04 - root - INFO - Slack notification sent successfully!
+24-02-12 14:03:04 - snowflake.connector.connection - INFO - closed
+24-02-12 14:03:04 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 14:03:06 - snowflake.connector.connection - INFO - closed
+24-02-12 14:03:06 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 14:05:02 - root - INFO - Successfully Extracted Dataset
+24-02-12 14:05:03 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 14:05:03 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 14:05:03 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 14:05:04 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-12 14:05:06 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:05:07 - root - INFO - Loaded json data to Stage
+24-02-12 14:05:07 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-12 14:05:07 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:05:07 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 14:05:07 - root - INFO - Loaded json data from stage to landing table
+24-02-12 14:05:07 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-12 14:05:08 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:05:08 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-12 14:05:08 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 14:05:08 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 14:05:10 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-12 14:05:10 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:05:10 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 14:05:10 - root - INFO - All Zipcodes are Standardized
+24-02-12 14:05:10 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-12 14:05:12 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:05:12 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 14:05:12 - root - INFO - All Null Valued are Handled
+24-02-12 14:05:12 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-12 14:05:16 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:05:16 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 14:05:16 - root - INFO - All keys in payloads are in snake case
+24-02-12 14:05:16 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-12 14:05:16 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:05:16 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 14:05:16 - root - INFO - Date Id Validation Successful
+24-02-12 14:05:16 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-12 14:05:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 14:05:17 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 14:05:17 - root - INFO - Hour Id Validation Successful
+24-02-12 14:05:17 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-12 14:05:17 - root - INFO - Slack notification sent successfully!
+24-02-12 14:05:17 - snowflake.connector.connection - INFO - closed
+24-02-12 14:05:17 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 14:05:19 - snowflake.connector.connection - INFO - closed
+24-02-12 14:05:19 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 15:05:08 - root - INFO - Successfully Extracted Dataset
+24-02-12 15:05:08 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 15:05:08 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 15:05:08 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 15:05:09 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-12 15:05:10 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 15:05:12 - root - INFO - Loaded json data to Stage
+24-02-12 15:05:12 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-12 15:05:13 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 15:05:13 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 15:05:13 - root - INFO - Loaded json data from stage to landing table
+24-02-12 15:05:13 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-12 15:05:15 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 15:05:15 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-12 15:05:15 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 15:05:15 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 15:05:16 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-12 15:05:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 15:05:17 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 15:05:17 - root - INFO - All Zipcodes are Standardized
+24-02-12 15:05:17 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-12 15:05:18 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 15:05:18 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 15:05:18 - root - INFO - All Null Valued are Handled
+24-02-12 15:05:18 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-12 15:05:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 15:05:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 15:05:23 - root - INFO - All keys in payloads are in snake case
+24-02-12 15:05:23 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-12 15:05:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 15:05:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 15:05:23 - root - INFO - Date Id Validation Successful
+24-02-12 15:05:23 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-12 15:05:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 15:05:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 15:05:23 - root - INFO - Hour Id Validation Successful
+24-02-12 15:05:23 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-12 15:05:24 - root - INFO - Slack notification sent successfully!
+24-02-12 15:05:24 - snowflake.connector.connection - INFO - closed
+24-02-12 15:05:24 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 15:05:25 - snowflake.connector.connection - INFO - closed
+24-02-12 15:05:25 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 16:05:05 - root - INFO - Successfully Extracted Dataset
+24-02-12 16:05:05 - root - INFO - All Standardizations are applied on Callcap data
+24-02-12 16:05:05 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 16:05:05 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 16:05:07 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-12 16:05:08 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 16:05:10 - root - INFO - Loaded json data to Stage
+24-02-12 16:05:10 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-12 16:05:12 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 16:05:12 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 16:05:12 - root - INFO - Loaded json data from stage to landing table
+24-02-12 16:05:12 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-12 16:05:13 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 16:05:13 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-12 16:05:13 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-12 16:05:13 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-12 16:05:15 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-12 16:05:16 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 16:05:16 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 16:05:16 - root - INFO - All Zipcodes are Standardized
+24-02-12 16:05:16 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-12 16:05:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 16:05:17 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 16:05:17 - root - INFO - All Null Valued are Handled
+24-02-12 16:05:17 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-12 16:05:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 16:05:22 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-12 16:05:22 - root - INFO - All keys in payloads are in snake case
+24-02-12 16:05:22 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-12 16:05:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 16:05:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 16:05:23 - root - INFO - Date Id Validation Successful
+24-02-12 16:05:23 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-12 16:05:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-12 16:05:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-12 16:05:23 - root - INFO - Hour Id Validation Successful
+24-02-12 16:05:23 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-12 16:05:24 - root - INFO - Slack notification sent successfully!
+24-02-12 16:05:24 - snowflake.connector.connection - INFO - closed
+24-02-12 16:05:24 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-12 16:05:27 - snowflake.connector.connection - INFO - closed
+24-02-12 16:05:27 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-13 15:05:07 - root - INFO - Successfully Extracted Dataset
+24-02-13 15:05:07 - root - INFO - All Standardizations are applied on Callcap data
+24-02-13 15:05:07 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-13 15:05:07 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-13 15:05:10 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-13 15:05:11 - snowflake.connector.cursor - INFO - query execution done
+24-02-13 15:05:14 - root - INFO - Loaded json data to Stage
+24-02-13 15:05:14 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-13 15:05:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-13 15:05:17 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-13 15:05:17 - root - INFO - Loaded json data from stage to landing table
+24-02-13 15:05:17 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-13 15:05:19 - snowflake.connector.cursor - INFO - query execution done
+24-02-13 15:05:19 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-13 15:05:19 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.6.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-13 15:05:19 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-13 15:05:21 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-13 15:05:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-13 15:05:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-13 15:05:23 - root - INFO - All Zipcodes are Standardized
+24-02-13 15:05:23 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-13 15:05:24 - snowflake.connector.cursor - INFO - query execution done
+24-02-13 15:05:24 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-13 15:05:24 - root - INFO - All Null Valued are Handled
+24-02-13 15:05:24 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-13 15:05:29 - snowflake.connector.cursor - INFO - query execution done
+24-02-13 15:05:29 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-13 15:05:29 - root - INFO - All keys in payloads are in snake case
+24-02-13 15:05:29 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-13 15:05:29 - snowflake.connector.cursor - INFO - query execution done
+24-02-13 15:05:29 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-13 15:05:29 - root - INFO - Date Id Validation Successful
+24-02-13 15:05:29 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-13 15:05:29 - snowflake.connector.cursor - INFO - query execution done
+24-02-13 15:05:29 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-13 15:05:29 - root - INFO - Hour Id Validation Successful
+24-02-13 15:05:29 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-13 15:05:31 - root - INFO - Slack notification sent successfully!
+24-02-13 15:05:31 - snowflake.connector.connection - INFO - closed
+24-02-13 15:05:31 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-13 15:05:32 - snowflake.connector.connection - INFO - closed
+24-02-13 15:05:32 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 10:51:00 - root - INFO - Successfully Extracted Dataset
+24-02-15 10:51:00 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 10:51:00 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 10:51:00 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 10:51:02 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-15 10:51:03 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 10:51:04 - root - INFO - Loaded json data to Stage
+24-02-15 10:51:04 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-15 10:51:08 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 10:51:08 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 10:51:08 - root - INFO - Loaded json data from stage to landing table
+24-02-15 10:51:08 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-15 10:51:10 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 10:51:10 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 10:51:10 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 10:51:10 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 10:51:11 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 10:51:13 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 10:51:13 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 10:51:13 - root - INFO - All Zipcodes are Standardized
+24-02-15 10:51:13 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 10:51:15 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 10:51:15 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 10:51:15 - root - INFO - All Null Valued are Handled
+24-02-15 10:51:15 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 10:51:19 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 10:51:19 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 10:51:19 - root - INFO - All keys in payloads are in snake case
+24-02-15 10:51:19 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 10:51:20 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 10:51:20 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 10:51:20 - root - INFO - Date Id Validation Successful
+24-02-15 10:51:20 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 10:51:20 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 10:51:20 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 10:51:20 - root - INFO - Hour Id Validation Successful
+24-02-15 10:51:20 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 10:51:21 - root - INFO - Slack notification sent successfully!
+24-02-15 10:51:21 - snowflake.connector.connection - INFO - closed
+24-02-15 10:51:21 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 10:51:21 - snowflake.connector.connection - INFO - closed
+24-02-15 10:51:21 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 10:58:14 - root - INFO - Slack notification sent successfully!
+24-02-15 10:58:14 - root - ERROR - Error: [Errno 2] No such file or directory: 'C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/20190101-20190111_CallCapCalls_empty.csv'
+24-02-15 10:59:29 - root - INFO - Successfully Extracted Dataset
+24-02-15 10:59:29 - root - INFO - DataFrame is Empty , There is no Data to Load into Snowflake
+24-02-15 10:59:30 - root - INFO - Slack notification sent successfully!
+24-02-15 10:59:30 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 10:59:30 - root - INFO - Slack notification sent successfully!
+24-02-15 11:21:52 - root - INFO - Successfully Extracted Dataset
+24-02-15 11:21:52 - root - INFO - DataFrame is Empty , There is no Data to Load into Snowflake
+24-02-15 11:21:53 - root - INFO - Slack notification sent successfully!
+24-02-15 11:21:53 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 11:50:20 - root - INFO - Successfully Extracted Dataset
+24-02-15 11:50:20 - root - INFO - DataFrame is Empty , There is no Data to Load into Snowflake
+24-02-15 11:50:21 - root - INFO - Slack notification sent successfully!
+24-02-15 11:50:21 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 11:50:46 - root - INFO - Successfully Extracted Dataset
+24-02-15 11:50:46 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 11:50:46 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 11:50:46 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 11:50:47 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-15 11:50:49 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 11:50:50 - root - INFO - Loaded json data to Stage
+24-02-15 11:50:50 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-15 11:50:51 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 11:50:51 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 11:50:51 - root - INFO - Loaded json data from stage to landing table
+24-02-15 11:50:51 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-15 11:50:53 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 11:50:53 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 11:50:53 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 11:50:53 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 11:50:54 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 11:50:57 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 11:50:57 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 11:50:57 - root - INFO - All Zipcodes are Standardized
+24-02-15 11:50:57 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 11:50:58 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 11:50:58 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 11:50:58 - root - INFO - All Null Valued are Handled
+24-02-15 11:50:58 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 11:51:02 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 11:51:02 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 11:51:02 - root - INFO - All keys in payloads are in snake case
+24-02-15 11:51:02 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 11:51:03 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 11:51:03 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 11:51:03 - root - INFO - Date Id Validation Successful
+24-02-15 11:51:03 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 11:51:03 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 11:51:03 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 11:51:03 - root - INFO - Hour Id Validation Successful
+24-02-15 11:51:03 - root - INFO - Slack notification sent successfully!
+24-02-15 11:51:03 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 11:51:03 - snowflake.connector.connection - INFO - closed
+24-02-15 11:51:03 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 11:51:04 - snowflake.connector.connection - INFO - closed
+24-02-15 11:51:04 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 11:53:03 - root - INFO - Successfully Extracted Dataset
+24-02-15 11:53:03 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 11:53:03 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 11:53:03 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 11:53:04 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-15 11:53:04 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 11:53:06 - root - INFO - Slack notification sent successfully!
+24-02-15 11:53:06 - root - ERROR - Error: 001003 (42000): 01b25c7f-3200-febe-0007-98d60002901e: SQL compilation error:
+syntax error line 1 at position 110 unexpected '('.
+24-02-15 11:53:06 - snowflake.connector.connection - INFO - closed
+24-02-15 11:53:06 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 11:56:45 - root - INFO - Successfully Extracted Dataset
+24-02-15 11:56:45 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 11:56:45 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 11:56:45 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 11:56:47 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-15 11:56:48 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 11:56:48 - root - INFO - Slack notification sent successfully!
+24-02-15 11:56:48 - root - ERROR - Error: 253006: 253006: File doesn't exist: ['C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_data.json20240215_115647']
+24-02-15 11:56:48 - snowflake.connector.connection - INFO - closed
+24-02-15 11:56:48 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 11:58:48 - root - INFO - Successfully Extracted Dataset
+24-02-15 11:58:49 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 11:58:49 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 11:58:49 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 11:58:50 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_d...]
+24-02-15 11:58:51 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 11:58:52 - root - INFO - Slack notification sent successfully!
+24-02-15 11:58:52 - root - ERROR - Error: 253006: 253006: File doesn't exist: ['C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/callcap_data.json']
+24-02-15 11:58:52 - snowflake.connector.connection - INFO - closed
+24-02-15 11:58:52 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 11:59:53 - root - INFO - Successfully Extracted Dataset
+24-02-15 11:59:53 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 11:59:53 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 11:59:53 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 11:59:54 - root - INFO - Slack notification sent successfully!
+24-02-15 11:59:54 - root - ERROR - Error: Cannot save file into a non-existent directory: '20240215_115954C:\Users\ananya.ramesh\Phase_1\training_phase1\callcap\Data'
+24-02-15 11:59:55 - snowflake.connector.connection - INFO - closed
+24-02-15 11:59:55 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:05:12 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:05:12 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:05:12 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:05:12 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:05:15 - root - INFO - Slack notification sent successfully!
+24-02-15 12:05:15 - root - ERROR - Error: unsupported operand type(s) for /: 'str' and 'str'
+24-02-15 12:05:15 - snowflake.connector.connection - INFO - closed
+24-02-15 12:05:15 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:06:32 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:06:32 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:06:32 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:06:32 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:06:35 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data @json_sta...]
+24-02-15 12:06:36 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:06:37 - root - INFO - Slack notification sent successfully!
+24-02-15 12:06:37 - root - ERROR - Error: 253006: 253006: Not a file but a directory: C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data
+24-02-15 12:06:37 - snowflake.connector.connection - INFO - closed
+24-02-15 12:06:37 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:07:03 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:07:04 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:07:04 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:07:04 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:07:05 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data @json_sta...]
+24-02-15 12:07:06 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:07:07 - root - INFO - Slack notification sent successfully!
+24-02-15 12:07:07 - root - ERROR - Error: 253006: 253006: Not a file but a directory: C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data
+24-02-15 12:07:07 - snowflake.connector.connection - INFO - closed
+24-02-15 12:07:07 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:07:25 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:07:25 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:07:25 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:07:25 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:07:26 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data @json_sta...]
+24-02-15 12:07:27 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:07:28 - root - INFO - Slack notification sent successfully!
+24-02-15 12:07:28 - root - ERROR - Error: 253006: 253006: Not a file but a directory: C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data
+24-02-15 12:07:28 - snowflake.connector.connection - INFO - closed
+24-02-15 12:07:28 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:09:45 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:09:45 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:09:45 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:09:45 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:09:46 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/*.json @j...]
+24-02-15 12:09:47 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:09:51 - root - INFO - Loaded json data to Stage
+24-02-15 12:09:51 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-15 12:09:52 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:09:52 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:09:52 - root - INFO - Loaded json data from stage to landing table
+24-02-15 12:09:52 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-15 12:09:53 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:09:53 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 12:09:53 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:09:53 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:09:54 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 12:09:54 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:09:54 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:09:54 - root - INFO - All Zipcodes are Standardized
+24-02-15 12:09:54 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 12:09:56 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:09:56 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:09:56 - root - INFO - All Null Valued are Handled
+24-02-15 12:09:56 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 12:10:01 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:10:01 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:10:01 - root - INFO - All keys in payloads are in snake case
+24-02-15 12:10:01 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 12:10:01 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:10:01 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:10:01 - root - INFO - Date Id Validation Successful
+24-02-15 12:10:01 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 12:10:01 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:10:01 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:10:01 - root - INFO - Hour Id Validation Successful
+24-02-15 12:10:02 - root - INFO - Slack notification sent successfully!
+24-02-15 12:10:02 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 12:10:02 - snowflake.connector.connection - INFO - closed
+24-02-15 12:10:02 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:10:03 - snowflake.connector.connection - INFO - closed
+24-02-15 12:10:03 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:11:02 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:11:02 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:11:02 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:11:02 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:11:04 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/*.json @j...]
+24-02-15 12:11:05 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:11:09 - root - INFO - Loaded json data to Stage
+24-02-15 12:11:09 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-15 12:11:10 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:11:10 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:11:10 - root - INFO - Loaded json data from stage to landing table
+24-02-15 12:11:10 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-15 12:11:11 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:11:11 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 12:11:11 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:11:11 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:11:13 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 12:11:14 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:11:14 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:11:14 - root - INFO - All Zipcodes are Standardized
+24-02-15 12:11:14 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 12:11:16 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:11:16 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:11:16 - root - INFO - All Null Valued are Handled
+24-02-15 12:11:16 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 12:11:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:11:22 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:11:22 - root - INFO - All keys in payloads are in snake case
+24-02-15 12:11:22 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 12:11:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:11:22 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:11:22 - root - INFO - Date Id Validation Successful
+24-02-15 12:11:22 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 12:11:24 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:11:24 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:11:24 - root - INFO - Hour Id Validation Successful
+24-02-15 12:11:26 - root - INFO - Slack notification sent successfully!
+24-02-15 12:11:26 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 12:11:26 - snowflake.connector.connection - INFO - closed
+24-02-15 12:11:26 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:11:27 - snowflake.connector.connection - INFO - closed
+24-02-15 12:11:27 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:12:54 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:12:54 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:12:54 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:12:54 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:12:55 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/*.json @j...]
+24-02-15 12:12:56 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:12:57 - root - INFO - Loaded json data to Stage
+24-02-15 12:12:57 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-15 12:12:58 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:12:58 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:12:58 - root - INFO - Loaded json data from stage to landing table
+24-02-15 12:12:58 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-15 12:12:58 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:12:58 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 12:12:58 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:12:58 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:13:00 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 12:13:01 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:13:01 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:13:01 - root - INFO - All Zipcodes are Standardized
+24-02-15 12:13:01 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 12:13:02 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:13:02 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:13:02 - root - INFO - All Null Valued are Handled
+24-02-15 12:13:02 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 12:13:07 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:13:07 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:13:07 - root - INFO - All keys in payloads are in snake case
+24-02-15 12:13:07 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 12:13:07 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:13:07 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:13:07 - root - INFO - Date Id Validation Successful
+24-02-15 12:13:07 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 12:13:08 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:13:08 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:13:08 - root - INFO - Hour Id Validation Successful
+24-02-15 12:13:09 - root - INFO - Slack notification sent successfully!
+24-02-15 12:13:09 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 12:13:09 - snowflake.connector.connection - INFO - closed
+24-02-15 12:13:09 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:13:09 - snowflake.connector.connection - INFO - closed
+24-02-15 12:13:09 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:19:34 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:19:34 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:19:34 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:19:34 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:19:35 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/*.json @j...]
+24-02-15 12:19:36 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:19:37 - root - INFO - Loaded json data to Stage
+24-02-15 12:19:37 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/callcap_data.json.gz' FILE_FORMAT = ...]
+24-02-15 12:19:38 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:19:38 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:19:38 - root - INFO - Loaded json data from stage to landing table
+24-02-15 12:19:38 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-15 12:19:38 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:19:38 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 12:19:38 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:19:38 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:19:39 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 12:19:39 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:19:39 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:19:39 - root - INFO - All Zipcodes are Standardized
+24-02-15 12:19:39 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 12:19:41 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:19:41 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:19:41 - root - INFO - All Null Valued are Handled
+24-02-15 12:19:41 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 12:19:46 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:19:46 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:19:46 - root - INFO - All keys in payloads are in snake case
+24-02-15 12:19:46 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 12:19:46 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:19:46 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:19:46 - root - INFO - Date Id Validation Successful
+24-02-15 12:19:46 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 12:19:46 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:19:46 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:19:46 - root - INFO - Hour Id Validation Successful
+24-02-15 12:19:46 - root - INFO - Slack notification sent successfully!
+24-02-15 12:19:46 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 12:19:46 - snowflake.connector.connection - INFO - closed
+24-02-15 12:19:46 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:19:48 - snowflake.connector.connection - INFO - closed
+24-02-15 12:19:48 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:33:00 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:33:00 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:33:00 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:33:00 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:33:01 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/20240215_...]
+24-02-15 12:33:02 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:33:03 - root - INFO - Loaded json data to Stage
+24-02-15 12:33:03 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/20240215_12_CallCap.json.gz' FILE_FO...]
+24-02-15 12:33:05 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:33:05 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:33:05 - root - INFO - Loaded json data from stage to landing table
+24-02-15 12:33:05 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-15 12:33:06 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:33:06 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 12:33:06 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:33:06 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:33:06 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 12:33:07 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:33:07 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:33:07 - root - INFO - All Zipcodes are Standardized
+24-02-15 12:33:07 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 12:33:09 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:33:09 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:33:09 - root - INFO - All Null Valued are Handled
+24-02-15 12:33:09 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 12:33:13 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:33:13 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:33:13 - root - INFO - All keys in payloads are in snake case
+24-02-15 12:33:13 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 12:33:14 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:33:14 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:33:14 - root - INFO - Date Id Validation Successful
+24-02-15 12:33:14 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 12:33:14 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:33:14 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:33:14 - root - INFO - Hour Id Validation Successful
+24-02-15 12:33:14 - root - INFO - Slack notification sent successfully!
+24-02-15 12:33:14 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 12:33:14 - snowflake.connector.connection - INFO - closed
+24-02-15 12:33:14 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:33:15 - snowflake.connector.connection - INFO - closed
+24-02-15 12:33:15 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:35:15 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:35:15 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:35:15 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:35:15 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:35:16 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/20240215_...]
+24-02-15 12:35:17 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:35:20 - root - INFO - Loaded json data to Stage
+24-02-15 12:35:20 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/20240215_12_CallCap.json.gz' FILE_FO...]
+24-02-15 12:35:21 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:35:21 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:35:21 - root - INFO - Loaded json data from stage to landing table
+24-02-15 12:35:21 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-15 12:35:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:35:22 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 12:35:22 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:35:22 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:35:23 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 12:35:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:35:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:35:23 - root - INFO - All Zipcodes are Standardized
+24-02-15 12:35:23 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 12:35:24 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:35:24 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:35:24 - root - INFO - All Null Valued are Handled
+24-02-15 12:35:24 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 12:35:30 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:35:30 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:35:30 - root - INFO - All keys in payloads are in snake case
+24-02-15 12:35:30 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 12:35:30 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:35:30 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:35:30 - root - INFO - Date Id Validation Successful
+24-02-15 12:35:30 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 12:35:30 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:35:30 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:35:30 - root - INFO - Hour Id Validation Successful
+24-02-15 12:35:31 - root - INFO - Slack notification sent successfully!
+24-02-15 12:35:31 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 12:35:31 - snowflake.connector.connection - INFO - closed
+24-02-15 12:35:31 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:35:32 - snowflake.connector.connection - INFO - closed
+24-02-15 12:35:32 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:43:49 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:43:49 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:43:49 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:43:49 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:43:51 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/20240215_...]
+24-02-15 12:43:52 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:43:53 - root - INFO - Loaded json data to Stage
+24-02-15 12:43:53 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/20240215_12_CallCap.json.gz' FILE_FO...]
+24-02-15 12:43:55 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:43:55 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:43:55 - root - INFO - Loaded json data from stage to landing table
+24-02-15 12:43:55 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-15 12:43:56 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:43:56 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 12:43:56 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:43:56 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:43:57 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 12:43:57 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:43:57 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:43:57 - root - INFO - All Zipcodes are Standardized
+24-02-15 12:43:57 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 12:43:58 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:43:58 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:43:58 - root - INFO - All Null Valued are Handled
+24-02-15 12:43:58 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 12:43:58 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:43:58 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:43:58 - root - INFO - All keys in payloads are in snake case
+24-02-15 12:43:58 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 12:43:59 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:43:59 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:43:59 - root - INFO - Date Id Validation Successful
+24-02-15 12:43:59 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 12:43:59 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:43:59 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:43:59 - root - INFO - Hour Id Validation Successful
+24-02-15 12:43:59 - root - INFO - Slack notification sent successfully!
+24-02-15 12:43:59 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 12:43:59 - snowflake.connector.connection - INFO - closed
+24-02-15 12:43:59 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:44:00 - snowflake.connector.connection - INFO - closed
+24-02-15 12:44:00 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:48:20 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:48:21 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:48:21 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:48:21 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:48:30 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/20240215_...]
+24-02-15 12:48:31 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:48:57 - root - INFO - Loaded json data to Stage
+24-02-15 12:48:57 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/20240215_12_CallCap.json.gz' FILE_FO...]
+24-02-15 12:48:58 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:48:58 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:48:58 - root - INFO - Loaded json data from stage to landing table
+24-02-15 12:48:58 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:json_data:date_...]
+24-02-15 12:48:59 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:48:59 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 12:48:59 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:48:59 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:49:00 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 12:49:00 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:49:00 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:49:00 - root - INFO - All Zipcodes are Standardized
+24-02-15 12:49:00 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 12:49:00 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:49:00 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:49:00 - root - INFO - All Null Valued are Handled
+24-02-15 12:49:00 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 12:49:01 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:49:01 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:49:01 - root - INFO - All keys in payloads are in snake case
+24-02-15 12:49:01 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 12:49:01 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:49:01 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:49:01 - root - INFO - Date Id Validation Successful
+24-02-15 12:49:01 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 12:49:01 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:49:01 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:49:01 - root - INFO - Hour Id Validation Successful
+24-02-15 12:49:02 - root - INFO - Slack notification sent successfully!
+24-02-15 12:49:02 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 12:49:02 - snowflake.connector.connection - INFO - closed
+24-02-15 12:49:02 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:49:03 - snowflake.connector.connection - INFO - closed
+24-02-15 12:49:03 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:50:39 - root - INFO - Successfully Extracted Dataset
+24-02-15 12:50:39 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 12:50:39 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:50:39 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:50:40 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/20240215_...]
+24-02-15 12:50:41 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:50:42 - root - INFO - Loaded json data to Stage
+24-02-15 12:50:42 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/20240215_12_CallCap.json.gz' FILE_FO...]
+24-02-15 12:50:43 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:50:43 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:50:43 - root - INFO - Loaded json data from stage to landing table
+24-02-15 12:50:43 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:date_id::NUMBER...]
+24-02-15 12:50:44 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:50:44 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 12:50:44 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 12:50:44 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 12:50:44 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 12:50:45 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:50:45 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:50:45 - root - INFO - All Zipcodes are Standardized
+24-02-15 12:50:45 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 12:50:45 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:50:45 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:50:45 - root - INFO - All Null Valued are Handled
+24-02-15 12:50:45 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 12:50:46 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:50:46 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 12:50:46 - root - INFO - All keys in payloads are in snake case
+24-02-15 12:50:46 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 12:50:46 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:50:46 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:50:46 - root - INFO - Date Id Validation Successful
+24-02-15 12:50:46 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 12:50:46 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 12:50:46 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 12:50:46 - root - INFO - Hour Id Validation Successful
+24-02-15 12:50:47 - root - INFO - Slack notification sent successfully!
+24-02-15 12:50:47 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 12:50:47 - snowflake.connector.connection - INFO - closed
+24-02-15 12:50:47 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 12:50:47 - snowflake.connector.connection - INFO - closed
+24-02-15 12:50:47 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 13:00:13 - root - INFO - Successfully Extracted Dataset
+24-02-15 13:00:13 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 13:00:13 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 13:00:13 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 13:00:15 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/20240215_...]
+24-02-15 13:00:16 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 13:00:19 - root - INFO - Loaded json data to Stage
+24-02-15 13:00:19 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/20240215_13_CallCap.json.gz' FILE_FO...]
+24-02-15 13:00:20 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 13:00:20 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 13:00:20 - root - INFO - Loaded json data from stage to landing table
+24-02-15 13:00:20 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:date_id::NUMBER...]
+24-02-15 13:00:21 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 13:00:21 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 13:00:21 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 13:00:21 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 13:00:22 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 13:00:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 13:00:22 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 13:00:22 - root - INFO - All Zipcodes are Standardized
+24-02-15 13:00:22 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 13:00:22 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 13:00:22 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 13:00:22 - root - INFO - All Null Valued are Handled
+24-02-15 13:00:22 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 13:00:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 13:00:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 13:00:23 - root - INFO - All keys in payloads are in snake case
+24-02-15 13:00:23 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 13:00:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 13:00:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 13:00:23 - root - INFO - Date Id Validation Successful
+24-02-15 13:00:23 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 13:00:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 13:00:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 13:00:23 - root - INFO - Hour Id Validation Successful
+24-02-15 13:00:23 - root - INFO - Slack notification sent successfully!
+24-02-15 13:00:23 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 13:00:23 - snowflake.connector.connection - INFO - closed
+24-02-15 13:00:23 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 13:00:24 - snowflake.connector.connection - INFO - closed
+24-02-15 13:00:24 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session

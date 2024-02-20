@@ -1,0 +1,18 @@
+24-02-15 16:38:00 - root - INFO - Successfully Extracted Dataset
+24-02-15 16:38:00 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 16:38:00 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 16:38:00 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 16:38:02 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/20240215_...]
+24-02-15 16:38:03 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 16:38:07 - root - INFO - Loaded json data to Stage
+24-02-15 16:38:07 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/20240215_163757_CallCap.json.gz' FIL...]
+24-02-15 16:38:09 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 16:38:09 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 16:38:09 - root - INFO - Loaded json data from stage to landing table
+24-02-15 16:38:09 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:date_id::NUMBER...]
+24-02-15 16:38:09 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 16:38:09 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 16:38:10 - root - INFO - Slack notification sent successfully!
+24-02-15 16:38:10 - root - ERROR - Error: LoadSnowflake.truncate_staging_table() takes 2 positional arguments but 3 were given
+24-02-15 16:38:10 - snowflake.connector.connection - INFO - closed
+24-02-15 16:38:10 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session

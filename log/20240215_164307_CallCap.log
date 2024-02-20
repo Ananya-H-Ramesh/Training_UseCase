@@ -1,0 +1,45 @@
+24-02-15 16:43:07 - root - INFO - Successfully Extracted Dataset
+24-02-15 16:43:08 - root - INFO - All Standardizations are applied on Callcap data
+24-02-15 16:43:08 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 16:43:08 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 16:43:10 - snowflake.connector.cursor - INFO - query: [PUT file://C:/Users/ananya.ramesh/Phase_1/training_phase1/callcap/Data/20240215_...]
+24-02-15 16:43:11 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 16:43:21 - root - INFO - Loaded json data to Stage
+24-02-15 16:43:21 - snowflake.connector.cursor - INFO - query: [COPY INTO staging_callcap FROM '@json_stage/20240215_164307_CallCap.json.gz' FIL...]
+24-02-15 16:43:23 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 16:43:23 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 16:43:23 - root - INFO - Loaded json data from stage to landing table
+24-02-15 16:43:23 - snowflake.connector.cursor - INFO - query: [INSERT INTO callcap (date_id, hour_id, payload) SELECT json_data:date_id::NUMBER...]
+24-02-15 16:43:24 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 16:43:24 - root - INFO - Loaded data from Landing table to Final callcap Table
+24-02-15 16:43:24 - snowflake.connector.cursor - INFO - query: [truncate table staging_callcap]
+24-02-15 16:43:24 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 16:43:24 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 16:43:24 - snowflake.connector.connection - INFO - Snowflake Connector for Python Version: 3.7.0, Python Version: 3.11.4, Platform: Windows-10-10.0.22631-SP0
+24-02-15 16:43:24 - snowflake.connector.connection - INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+24-02-15 16:43:25 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN count(*)=0 THEN 'All Zipcodes are Standardized' ELSE 'Not all z...]
+24-02-15 16:43:25 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 16:43:25 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 16:43:25 - root - INFO - All Zipcodes are Standardized
+24-02-15 16:43:25 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*)=0 THEN 'All Null Valued are Handled' ELSE 'There are N...]
+24-02-15 16:43:26 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 16:43:26 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 16:43:26 - root - INFO - All Null Valued are Handled
+24-02-15 16:43:26 - snowflake.connector.cursor - INFO - query: [SELECT CASE WHEN COUNT(*) = 0 THEN 'All keys in payloads are in snake case' ELSE...]
+24-02-15 16:43:26 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 16:43:26 - snowflake.connector.cursor - INFO - Number of results in first chunk: 1
+24-02-15 16:43:26 - root - INFO - All keys in payloads are in snake case
+24-02-15 16:43:26 - snowflake.connector.cursor - INFO - query: [select REGEXP_REPLACE(CAST(payload:start_datetime as date),'-','')as date_callca...]
+24-02-15 16:43:27 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 16:43:27 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 16:43:27 - root - INFO - Date Id Validation Successful
+24-02-15 16:43:27 - snowflake.connector.cursor - INFO - query: [SELECT RPAD(TO_CHAR(payload:start_datetime::TIMESTAMP, 'HH24'), 6, '0') AS hour_...]
+24-02-15 16:43:27 - snowflake.connector.cursor - INFO - query execution done
+24-02-15 16:43:27 - snowflake.connector.cursor - INFO - Number of results in first chunk: 0
+24-02-15 16:43:27 - root - INFO - Hour Id Validation Successful
+24-02-15 16:43:28 - root - INFO - Slack notification sent successfully!
+24-02-15 16:43:28 - root - INFO - Callcap Data Successfully loaded to Snowflake and Validated
+24-02-15 16:43:28 - snowflake.connector.connection - INFO - closed
+24-02-15 16:43:28 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
+24-02-15 16:43:29 - snowflake.connector.connection - INFO - closed
+24-02-15 16:43:29 - snowflake.connector.connection - INFO - No async queries seem to be running, deleting session
